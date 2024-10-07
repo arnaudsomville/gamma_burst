@@ -7,7 +7,7 @@ import swifttools.ukssdc.data.GRB as udg
 import pickle
 
 from gamma_burst.eumerations import ObservationMode
-class LightCurve:
+class XRTLightCurve:
 
     def __init__(self, grb_name: str) -> None:
         self.grb_name: str = grb_name
@@ -102,9 +102,9 @@ class LightCurve:
                 print(f"{key} : {data}")
 
 if __name__ == '__main__':
-    lc = LightCurve('GRB 101225A')
-    lc = LightCurve('GRB 081118')
-    lc.plot_light_curve(ObservationMode.PC_Mode)
-    lc.plot_light_curve_HR(ObservationMode.PC_Mode)
+    lc = XRTLightCurve('GRB 101225A')
+    lc = XRTLightCurve('GRB 081118')
+    lc.plot_light_curve(ObservationMode.WT_Mode)
+    lc.plot_light_curve_HR(ObservationMode.WT_Mode)
 
     lc.print_fields()
