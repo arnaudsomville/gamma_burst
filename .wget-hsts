@@ -1,0 +1,9 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+packages.microsoft.com	0	1	1720174590	31536000
+learn.microsoft.com	0	1	1720174425	31536000
+go.microsoft.com	0	1	1720174425	31536000
+download.influxdata.com	0	1	1727427153	15724800
+github.com	0	1	1716986629	31536000
+swift.gsfc.nasa.gov	0	1	1727946071	31536000
