@@ -124,22 +124,3 @@ def print_fields(dict):
             print(f"Dataset {key} : {data.columns}")
         else:
             print(f"{key} : {data}")
-
-if __name__ == '__main__':
-    lc_dict = recover_light_curves('GRB 101225A')
-    # lc_dict = recover_rebinned_light_curves(
-    #     grb_name = 'GRB 101225A',
-    #     bin_size = 10,
-    #     min_snr = 1.5, 
-    #     soft_min = 0, 
-    #     soft_max = 25, 
-    #     hard_min = 25, 
-    #     hard_max = 1e6
-    # )
-    # print(lc_dict)
-    spectra_dict = recover_spectra('GRB 101225A')
-    print_fields(spectra_dict)
-    # print(recover_spectra('GRB 101225A'))
-
-    plot_light_curve('GRB 101225A', 'WT_incbad', (0, 3000), False)
-    plot_light_curve_HR('GRB 101225A', 'WTHR_incbad', (0, 3000  ), False)

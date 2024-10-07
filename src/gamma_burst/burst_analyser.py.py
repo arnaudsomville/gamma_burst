@@ -122,7 +122,6 @@ class BurstAnalyser:
             for pos, neg in zip(flux_rate_pos_err, flux_rate_neg_err):
                 mean_error = (pos-neg)/2
                 flux_rate_err.append(mean_error)
-            error = filtered_data.get('FluxErr', 0)
             plt.figure(figsize=(10, 6))
             plt.errorbar(time, observed_flux_rate, yerr=flux_rate_err, fmt='o-')
         else:
