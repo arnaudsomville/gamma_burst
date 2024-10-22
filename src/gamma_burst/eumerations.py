@@ -14,4 +14,5 @@ class ObservationMode(StrEnum):
 
 class Instrument(StrEnum):
     BAT_Sensor = 'BAT' #15 - 150kev 
+    BAT_Sensor_NoEvolution = 'BAT_NoEvolution' #15 - 150kev 
     XRT_Sensor = 'XRT' #0.3 - 10kev

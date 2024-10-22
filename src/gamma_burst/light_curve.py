@@ -103,7 +103,7 @@ class XRTLightCurve:
 
 if __name__ == '__main__':
     lc = XRTLightCurve('GRB 101225A')
-    lc = XRTLightCurve('GRB 081118')
+    # lc = XRTLightCurve('GRB 081118')
     lc.plot_light_curve(ObservationMode.WT_Mode)
     lc.plot_light_curve_HR(ObservationMode.WT_Mode)
 

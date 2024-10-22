@@ -9,7 +9,7 @@ import pickle
 
 from gamma_burst.eumerations import ObservationMode
 
-class Spectra:
+class XRTSpectra:
 
     def __init__(self, grb_name: str) -> None:
         self.grb_name: str = grb_name
@@ -64,7 +64,7 @@ class Spectra:
         obs_flux = self.s_data['interval0'][mode]['PowerLaw']['ObsFlux']
 
         energy = np.arange(energy_scale[0], energy_scale[1], delta_e)
-        flux = [obs_flux * (energy_value/50) ** gamma for energy_value in energy]
+        flux = [obs_flux * (energy_value/50) ** -gamma for energy_value in energy]
         
         if plot_error:
             gamma_pos_err = self.s_data['interval0'][mode]['PowerLaw']['GammaNeg'] + gamma
@@ -82,7 +82,7 @@ class Spectra:
         else:
             plt.plot(energy, flux)
         plt.xlabel('Energy (kev)')
-        plt.ylabel('Flux (cts/s)')
+        plt.ylabel('Flux (erg/cm2/s)')
         plt.xscale('log')
         plt.yscale('log')
         plt.title(f'Flux for {self.grb_name} in {mode}')
@@ -96,21 +96,21 @@ class Spectra:
 
         flux_CPL = [K_CPL * (energy_value/50) ** alpha_CPL*np.exp(-energy_value*(2+alpha_CPL)/Epeak) for energy_value in energy]
         
-        plt.plot(energy, flux_PL)
-        plt.plot(energy, flux_CPL)
+        plt.plot(energy, flux_PL, label='Power Law')
+        plt.plot(energy, flux_CPL, label='Cutoff Power Law')
         plt.xlabel('Energy (kev)')
-        plt.ylabel('Flux (cts/s)')
+        plt.ylabel('Flux (cts/s/cm2/kev)')
         plt.xscale('log')
         plt.yscale('log')
-        plt.title(f'Flux for {self.grb_name}')
+        plt.title(f'Powerlaw modelizations for {self.grb_name}')
         plt.legend()
         plt.show()
 
 
 if __name__ == '__main__':
-    spectra = Spectra('GRB 101225A')
-    # spectra.print_fields()
-    spectra.plot_spectra(ObservationMode.WT_Mode, (1,1e4))
+    spectra = XRTSpectra('GRB 101225A')
+    spectra.print_fields()
+    # spectra.plot_spectra(ObservationMode.WT_Mode, (1,1e4))
     spectra.plot_spectra_band(
         alpha_PL=-1.83102,
         K_PL=1.99768E-04,

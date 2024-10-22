@@ -16,6 +16,7 @@ dependencies = [
     "uvicorn>=0.29.0",
     "swifttools>=3.0.22",
     "matplotlib>=3.9.2",
+    "pandas>=2.2.3",
 ]
 description = "Compute gamma burst and makes curves"
 readme = "README.md"
